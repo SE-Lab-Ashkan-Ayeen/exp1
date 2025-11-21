@@ -19,7 +19,6 @@ jobs:
           node-version: '18'
 
       - name: Install and Build
-        working-directory: ./conference-site
         run: |
           npm ci
           npm run build
@@ -27,6 +26,6 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: conference-site/build
+          folder: build
           branch: gh-pages
           clean: true
