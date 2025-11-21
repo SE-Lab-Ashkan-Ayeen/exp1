@@ -1,7 +1,7 @@
 {
   "name": "conference-site",
   "version": "0.1.0",
-  "homepage": "https://SE-Lab-Ashkan-Ayeen.github.io/syntact-2025",
+  "homepage": "https://SE-Lab-Ashkan-Ayeen.github.io/exp1",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
