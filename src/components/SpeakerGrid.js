@@ -5,38 +5,57 @@ const speakers = [
   {
     id: 1,
     name: 'Dr. Sarah Johnson',
-    title: 'Professor of Linguistics',
+    titleEn: 'Professor of Linguistics',
+    titleFr: 'Professeure de Linguistique',
     affiliation: 'MIT',
-    topic: 'Syntax-Semantics Interface'
+    topicEn: 'Syntax-Semantics Interface',
+    topicFr: 'Interface Syntaxe-Sémantique'
   },
   {
     id: 2,
     name: 'Dr. Michael Chen',
-    title: 'Research Director',
+    titleEn: 'Research Director',
+    titleFr: 'Directeur de Recherche',
     affiliation: 'Stanford University',
-    topic: 'Formal Semantics'
+    topicEn: 'Formal Semantics',
+    topicFr: 'Sémantique Formelle'
   },
   {
     id: 3,
     name: 'Dr. Elena Rodriguez',
-    title: 'Associate Professor',
+    titleEn: 'Associate Professor',
+    titleFr: 'Professeure Associée',
     affiliation: 'Oxford University',
-    topic: 'Cross-linguistic Syntax'
+    topicEn: 'Cross-linguistic Syntax',
+    topicFr: 'Syntaxe Interlinguistique'
   },
   {
     id: 4,
     name: 'Dr. James Wilson',
-    title: 'Professor',
+    titleEn: 'Professor',
+    titleFr: 'Professeur',
     affiliation: 'Harvard University',
-    topic: 'Computational Semantics'
+    topicEn: 'Computational Semantics',
+    topicFr: 'Sémantique Computationnelle'
   }
 ];
 
-function SpeakerGrid() {
+const translations = {
+  en: {
+    sectionTitle: 'Featured Speakers'
+  },
+  fr: {
+    sectionTitle: 'Conférenciers Principaux'
+  }
+};
+
+function SpeakerGrid({ language = 'en' }) {
+  const t = translations[language];
+
   return (
     <section className="speakers">
       <div className="container">
-        <h2 className="section-title">Featured Speakers</h2>
+        <h2 className="section-title">{t.sectionTitle}</h2>
         <div className="speaker-grid">
           {speakers.map(speaker => (
             <div key={speaker.id} className="speaker-card">
@@ -44,9 +63,9 @@ function SpeakerGrid() {
                 {speaker.name.charAt(0)}
               </div>
               <h3 className="speaker-name">{speaker.name}</h3>
-              <p className="speaker-title">{speaker.title}</p>
+              <p className="speaker-title">{language === 'fr' ? speaker.titleFr : speaker.titleEn}</p>
               <p className="speaker-affiliation">{speaker.affiliation}</p>
-              <p className="speaker-topic">{speaker.topic}</p>
+              <p className="speaker-topic">{language === 'fr' ? speaker.topicFr : speaker.topicEn}</p>
             </div>
           ))}
         </div>
